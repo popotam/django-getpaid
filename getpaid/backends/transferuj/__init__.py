@@ -73,7 +73,7 @@ class PaymentProcessor(PaymentProcessorBase):
         # Transferuj allows to immediately return payments. We delegate this
         # ability to the order model.
         if getattr(payment.order, 'payment_should_be_accepted', lambda payment: True)(payment):
-            if tr_status == 'TRUE':
+            if tr_status in ('TRUE', 'PAID'):
                 # Due to Transferuj documentation, we need to check if amount is correct
                 payment.amount_paid = Decimal(tr_paid)
                 payment.paid_on = datetime.datetime.utcnow().replace(tzinfo=utc)
