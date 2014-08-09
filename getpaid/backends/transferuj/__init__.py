@@ -72,25 +72,28 @@ class PaymentProcessor(PaymentProcessorBase):
 
         # Transferuj allows to immediately return payments. We delegate this
         # ability to the order model.
-        if getattr(payment.order, 'payment_should_be_accepted', lambda payment: True)(payment):
-            if tr_status == 'TRUE':
-                # Due to Transferuj documentation, we need to check if amount is correct
-                payment.amount_paid = Decimal(tr_paid)
-                payment.paid_on = datetime.datetime.utcnow().replace(tzinfo=utc)
-                if payment.amount <= Decimal(tr_paid):
-                    # Amount is correct or it is overpaid
-                    payment.change_status('paid')
-                else:
-                    payment.change_status('partially_paid')
-            elif payment.status != 'paid':
-                payment.change_status('failed')
+        if tr_status == 'PAID':
+            if getattr(payment.order, 'payment_should_be_accepted',
+                       lambda payment: True)(payment):
+                # inform transferuj that we are ready to accept payment
+                return 'TRUE'
+            else:
+                # transferuj should return payment
+                return 'FALSE'
 
-            return 'TRUE'
-        else:
-            # We probably should make a separate status for rejected payments,
-            # but we don’t want to do it only for one backend.
+        if tr_status == 'TRUE':
+            # Due to Transferuj documentation, we need to check if amount is correct
+            payment.amount_paid = Decimal(tr_paid)
+            payment.paid_on = datetime.datetime.utcnow().replace(tzinfo=utc)
+            if payment.amount <= Decimal(tr_paid):
+                # Amount is correct or it is overpaid
+                payment.change_status('paid')
+            else:
+                payment.change_status('partially_paid')
+        elif payment.status != 'paid':
             payment.change_status('failed')
-            return 'FALSE'
+
+        return 'TRUE'
 
     def get_gateway_url(self, request):
         """
