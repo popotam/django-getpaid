@@ -2,97 +2,102 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-17 13:41+0100\n"
+"POT-Creation-Date: 2014-09-02 13:42+0200\n"
 "PO-Revision-Date: 2013-02-24 16:01+0124\n"
 "Last-Translator:   <cypreess@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2)\n"
 "X-Translated-Using: django-rosetta 0.7.0\n"
 
-#: forms.py:51
+#: forms.py:52
 msgid "Payment method"
 msgstr "Metoda płatności"
 
-#: forms.py:60
+#: forms.py:61
 msgid "Order cannot be paid"
 msgstr "Zamówienie nie może być przekazane do zapłaty"
 
-#: models.py:11
+#: models.py:12
 msgid "new"
 msgstr "nowa"
 
-#: models.py:12
+#: models.py:13
 msgid "in progress"
 msgstr "w realizacji"
 
-#: models.py:13
+#: models.py:14
 msgid "partially paid"
 msgstr "częściowo opłacona"
 
-#: models.py:14
+#: models.py:15
 msgid "paid"
 msgstr "opłacona"
 
-#: models.py:15
+#: models.py:16
 msgid "failed"
 msgstr "niepowodzenie"
 
-#: models.py:28
+#: models.py:17
+msgid "chargeback"
+msgstr "zwrócona"
+
+#: models.py:31
 msgid "amount"
 msgstr "kwota"
 
-#: models.py:29
+#: models.py:32
 msgid "currency"
 msgstr "waluta"
 
-#: models.py:30
+#: models.py:33
 msgid "status"
 msgstr "status"
 
-#: models.py:31
+#: models.py:34
 msgid "backend"
 msgstr "backend"
 
-#: models.py:32
+#: models.py:35
 msgid "created on"
 msgstr "utworzono"
 
-#: models.py:33
+#: models.py:36
 msgid "paid on"
 msgstr "opłacono dnia"
 
-#: models.py:34
+#: models.py:37
 msgid "amount paid"
 msgstr "zapłacona kwota"
 
-#: models.py:35
+#: models.py:38
 msgid "external id"
 msgstr "obcy identyfikator"
 
-#: models.py:36
+#: models.py:39
 msgid "description"
 msgstr "opis"
 
-#: models.py:42
+#: models.py:45
 #, python-format
 msgid "Payment #%(id)d"
 msgstr "Płatność #%(id)d"
 
-#: models.py:130
+#: models.py:139
 msgid "Payment"
 msgstr "Płatność"
 
-#: models.py:131
+#: models.py:140
 msgid "Payments"
 msgstr "Płatności"
 
@@ -100,19 +105,19 @@ msgstr "Płatności"
 msgid "Dotpay"
 msgstr "Dotpay"
 
-#: backends/dummy/__init__.py:7
+#: backends/dummy/__init__.py:8
 msgid "Dummy backend"
 msgstr "Dummy backend"
 
-#: backends/dummy/forms.py:9
+#: backends/dummy/forms.py:10
 msgid "authorization"
 msgstr "autoryzacja"
 
-#: backends/dummy/forms.py:9
+#: backends/dummy/forms.py:10
 msgid "yes"
 msgstr "tak"
 
-#: backends/dummy/forms.py:9
+#: backends/dummy/forms.py:10
 msgid "no"
 msgstr "nie"
 
@@ -134,11 +139,48 @@ msgstr ""
 msgid "Continue"
 msgstr "Kontynuuj"
 
-#: backends/payu/__init__.py:33
+#: backends/paymill/__init__.py:7
+msgid "Paymill"
+msgstr ""
+
+#: backends/paymill/templates/getpaid_paymill_backend/paymill.html:8
+#, python-format
+msgid ""
+"\n"
+"    Please fill in your data to buy \"<strong>%(order_name)s</strong>\"\n"
+"    for <strong>%(amount)s %(currency)s</strong>.\n"
+"    "
+msgstr ""
+
+#: backends/paymill/templates/getpaid_paymill_backend/paymill_form.html:10
+msgid "Card number"
+msgstr ""
+
+#: backends/paymill/templates/getpaid_paymill_backend/paymill_form.html:13
+msgid "CVC"
+msgstr ""
+
+#: backends/paymill/templates/getpaid_paymill_backend/paymill_form.html:16
+msgid "Name"
+msgstr ""
+
+#: backends/paymill/templates/getpaid_paymill_backend/paymill_form.html:19
+msgid "Expiry date (MM/YYYY)"
+msgstr ""
+
+#: backends/paymill/templates/getpaid_paymill_backend/paymill_form.html:25
+msgid "Pay"
+msgstr ""
+
+#: backends/payu/__init__.py:29
 msgid "PayU"
 msgstr "PayU"
 
-#: backends/transferuj/__init__.py:21
+#: backends/przelewy24/__init__.py:31
+msgid "Przelewy24"
+msgstr ""
+
+#: backends/transferuj/__init__.py:22
 msgid "Transferuj.pl"
 msgstr "Transferuj.pl"
 

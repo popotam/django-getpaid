@@ -14,6 +14,7 @@ PAYMENT_STATUS_CHOICES = (
         ('partially_paid', _("partially paid")),
         ('paid', _("paid")),
         ('failed', _("failed")),
+        ('chargeback', _("chargeback")),
         )
 
 
